@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="h1">this text is optional</h1>
+    <button id="btn">Press to say hide text</button>
+    <script>
+      //b1: Lấy ra element của phần tử cần click
+      let btn = document.querySelector("#btn");
+      //b2: Lắng nghe sựu kiện click lên phần tử
+      btn.addEventListener("click", function () {
+        document.getElementById("h1").innerHTML = "Text after change";
+      });
+      btn.style.color = "white";
+      btn.style.padding = "20px";
+      btn.style.borderRadius = "10px";
+      btn.style.background = "blue";
+    </script>
+  </body>
+</html>

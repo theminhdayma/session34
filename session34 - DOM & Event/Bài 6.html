@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="text" />
+    <button id="btn">add item</button>
+    <script>
+      //b1: Lấy ra element của phần tử cần click
+      let btnElement = document.querySelector("#btn");
+      //b2: Lắng nghe sựu kiện click lên phần tử
+      btnElement.addEventListener("click", function () {
+        let ul = document.createElement("ul");
+        document.body.append(ul);
+        let li = document.createElement("li");
+        ul.appendChild(li);
+        li.innerHTML = document.getElementById("text").value;
+      });
+      
+      btn.style.color = "white";
+      btn.style.padding = "10px";
+      btn.style.borderRadius = "10px";
+      btn.style.background = "green";
+    </script>
+  </body>
+</html>

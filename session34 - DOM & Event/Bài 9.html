@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bt9</title>
+  </head>
+  <body>
+    <input id="infor" type="text" />
+    <button id="editBtn">edit item</button>
+
+    <ul id="List">
+      <li>
+        <input type="text" value="Nguyễn Văn A" readonly />
+        <button class="editBtn">Edit</button>
+      </li>
+      <li>
+        <input type="text" value="Vũ Thị B" readonly />
+        <button class="editBtn">Edit</button>
+      </li>
+      <li>
+        <input type="text" value="Nguyễn Minh C" readonly />
+        <button class="editBtn">Edit</button>
+      </li>
+    </ul>
+
+    <script>
+      const editBtn = document.getElementById("editBtn");
+      const editButtons = document.getElementsByClassName("editBtn");
+
+      editBtn.style.backgroundColor = "rgb(59, 221, 59)";
+      editBtn.style.padding = "10px";
+      editBtn.style.fontSize = "18px";
+      editBtn.style.border = "none";
+      editBtn.style.borderRadius = "20px";
+      editBtn.style.width = "110px";
+      editBtn.style.marginTop = "10px";
+
+      editBtn.addEventListener("click", () => {
+        const selectedItem = document.querySelector("ul li.active input");
+        if (selectedItem) {
+          selectedItem.value = document.getElementById("infor").value;
+          selectedItem.readOnly = true;
+          selectedItem.parentNode.classList.remove("active");
+          document.getElementById("infor").value = "";
+        }
+      });
+
+      for (let i = 0; i < editButtons.length; i++) {
+        const button = editButtons[i];
+        button.style.marginLeft = "10px";
+        button.style.backgroundColor = "limegreen";
+        button.style.color = "white";
+        button.style.padding = "5px 10px";
+        button.style.border = "none";
+        button.style.borderRadius = "5px";
+        button.style.cursor = "pointer";
+
+        button.addEventListener("click", function () {
+          const listItem = this.parentNode;
+          removeActive();
+          listItem.classList.add("active");
+          const input = listItem.querySelector("input");
+          input.readOnly = false;
+          document.getElementById("infor").value = input.value;
+        });
+      }
+
+      function removeActive() {
+        const activeItem = document.querySelector("ul li.active");
+        if (activeItem) {
+          const input = activeItem.querySelector("input");
+          const button = activeItem.querySelector("button");
+          input.readOnly = true;
+          button.textContent = "Edit";
+          button.classList.remove("save-btn");
+          activeItem.classList.remove("active");
+        }
+      }
+    </script>
+  </body>
+</html>

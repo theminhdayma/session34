@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>Cell 1 row 1</th>
+        <th>Cell 2 row 1</th>
+        <th>Cell 3 row 1</th>
+        <th><button class="delete">Delete</button></th>
+      </tr>
+      <tr>
+        <th>Cell 1 row 2</th>
+        <th>Cell 2 row 2</th>
+        <th>Cell 3 row 2</th>
+        <th><button class="delete">Delete</button></th>
+      </tr>
+      <tr>
+        <th>Cell 1 row 3</th>
+        <th>Cell 2 row 3</th>
+        <th>Cell 3 row 3</th>
+        <th><button class="delete">Delete</button></th>
+      </tr>
+    </table>
+
+    <script>
+      let btnElements = document.querySelectorAll(".delete");
+
+      btnElements.forEach(function (btn) {
+        btn.style.color = "white";
+        btn.style.padding = "10px";
+        btn.style.borderRadius = "10px";
+        btn.style.background = "red";
+
+        btn.addEventListener("click", function () {
+          let row = this.parentNode.parentNode;
+          row.parentNode.removeChild(row);
+        });
+      });
+    </script>
+  </body>
+</html>
